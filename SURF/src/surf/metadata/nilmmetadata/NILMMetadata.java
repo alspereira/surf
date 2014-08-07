@@ -9,6 +9,16 @@ import org.json.simple.JSONValue;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 
+/**
+ *  This and all the child classes where created as a first
+ *  attempt to come up with a Java wrapper for the NILM Metadata project
+ *  such than one can programmatically create NILM Metadata.
+ *
+ *  @author		Lucas Pereira
+ *  @version	0.1, 30-Jun-14
+ *
+ *  @see	https://github.com/nilmtk/nilm_metadata
+ */
 public class NILMMetadata {
 	
 	public static String SOURCE_SCHEMA		= "source_schema";

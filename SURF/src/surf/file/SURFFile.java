@@ -1362,7 +1362,6 @@ implements InterleavedStreamFile {
 					if( i == ADTL_MAGIC ) {
 						listMagicOff = raf.getFilePointer();
 						listMagicLen = chunkLen;
-						System.out.println("adtl: " + listMagicLen);
 					} // if( i == ADTL_MAGIC )
 					if(i == ANNO_MAGIC) {
 						annoMagicOff = raf.getFilePointer();
