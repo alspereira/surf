@@ -1,0 +1,19 @@
+source_schema: 'NILM Metadata :: MeterDevice'
+source_file: meter_devices.yaml
+last_update: 2014-07-03T20:42:50.708+0100
+BLUED_whole_house:
+  sample_period: 0.016667
+  max_sample_period: 8.333333333E-5
+firefly_plug_level:
+  model: Firefly plug-level
+  model_url: http://www.ece.cmu.edu/firefly/
+  manufacturer: Carnegie Mellon University
+  sample_period: 1
+  max_sample_period: 0.001
+firefly_environmental:
+  model: Firefly environmental
+  model_url: http://www.ece.cmu.edu/firefly/
+  manufacturer: Carnegie Mellon University
+BLUED_circuit_level:
+  manufacturer: Carnegie Mellon University
+  sample_period: 0.05

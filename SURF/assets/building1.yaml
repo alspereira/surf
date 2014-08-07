@@ -1,0 +1,364 @@
+source_schema: 'NILM Metadata :: Building'
+source_file: building1.yaml
+last_update: 2014-07-03T20:44:37.476+0100
+instance: 1
+original_name: BLUED House 1
+elec_meters:
+  1: &BLUED_whole_house
+    source_schema: 'NILM Metadata :: ElecMeter'
+    last_update: 2014-07-03T20:44:37.479+0100
+    site_meter: true
+    device_model: BLUED_whole_house
+  2: &firefly_plug_level
+    source_schema: 'NILM Metadata :: ElecMeter'
+    last_update: 2014-07-03T20:44:37.479+0100
+    device_model: firefly_plug_level
+  3: *firefly_plug_level
+  4: *firefly_plug_level
+  5: *firefly_plug_level
+  6: *firefly_plug_level
+  7: *firefly_plug_level
+  8: *firefly_plug_level
+  9: *firefly_plug_level
+  10: *firefly_plug_level
+  11: *firefly_plug_level
+  12: *firefly_plug_level
+  13: *firefly_plug_level
+  14: *firefly_plug_level
+  15: *firefly_plug_level
+  16: *firefly_plug_level
+  17: *firefly_plug_level
+  18: *firefly_plug_level
+  19: *firefly_plug_level
+  20: *firefly_plug_level
+  21: *firefly_plug_level
+  22: *firefly_plug_level
+  23: *firefly_plug_level
+  24: *firefly_plug_level
+  25: *firefly_plug_level
+  26: *firefly_plug_level
+  27: *firefly_plug_level
+  28: *firefly_plug_level
+  29: *firefly_plug_level
+  30: &firefly_environmental
+    source_schema: 'NILM Metadata :: ElecMeter'
+    last_update: 2014-07-03T20:44:37.480+0100
+    device_model: firefly_environmental
+  31: *firefly_environmental
+  32: *firefly_environmental
+  33: *firefly_environmental
+  34: *firefly_environmental
+  35: *firefly_environmental
+  36: *firefly_environmental
+  37: *firefly_environmental
+  38: *firefly_environmental
+  39: *firefly_environmental
+  40: *firefly_environmental
+  41: *firefly_environmental
+  42: &BLUED_circuit_level
+    source_schema: 'NILM Metadata :: ElecMeter'
+    last_update: 2014-07-03T20:44:37.480+0100
+    device_model: BLUED_circuit_level
+  43: *BLUED_circuit_level
+  44: *BLUED_circuit_level
+  45: *BLUED_circuit_level
+  46: *BLUED_circuit_level  
+appliances:
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.481+0100
+  original_id: 101
+  original_name: Living Room Desk Lamp
+  average_power_consumption: 30
+  number_of_events: 26
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.481+0100
+  original_id: 102
+  original_name: Living Room Tall Desk Lamp
+  average_power_consumption: 30
+  number_of_events: 25
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.482+0100
+  original_id: 103
+  original_name: Garage Door
+  average_power_consumption: 530
+  number_of_events: 24
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.482+0100
+  original_id: 105
+  original_name: Washing Machine
+  average_power_consumption: 130-700
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.482+0100
+  original_id: 107
+  original_name: Kitchen Music
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.482+0100
+  original_id: 108
+  original_name: Kitchen Aid Chopper
+  average_power_consumption: 1500
+  number_of_events: 16
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.483+0100
+  original_id: 109
+  original_name: Tea Kettle
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.483+0100
+  original_id: 110
+  original_name: Toaster Oven
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.483+0100
+  original_id: 111
+  original_name: Refrigerator
+  average_power_consumption: 120
+  number_of_events: 616
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.484+0100
+  original_id: 112
+  original_name: A/V Living Room
+  average_power_consumption: 45
+  number_of_events: 8
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.484+0100
+  original_id: 116
+  original_name: Sub-woofer Living Room
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.484+0100
+  instance: 1
+  original_id: 118
+  original_name: Computer 1
+  average_power_consumption: 60
+  number_of_events: 45
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.484+0100
+  instance: 2
+  original_id: 120
+  original_name: Laptop 1
+  average_power_consumption: 40
+  number_of_events: 14
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.485+0100
+  instance: 14
+  original_id: 
+  original_name: Dehumidifier
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.485+0100
+  original_id: 122
+  original_name: Vacumm Cleaner
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.485+0100
+  original_id: 123
+  original_name: Basement, Receiver/DVR/Blueray Player
+  average_power_consumption: 55
+  number_of_events: 34
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.485+0100
+  original_id: 124
+  original_name: Sub-woofer Basement
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.486+0100
+  instance: 1
+  original_id: 125
+  original_name: Apple TV Basement
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.486+0100
+  original_id: 127
+  original_name: Air Compressor
+  average_power_consumption: 1130
+  number_of_events: 20
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.486+0100
+  instance: 1
+  original_id: 128
+  original_name: LCD Monitor 1
+  average_power_consumption: 35
+  number_of_events: 77
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.486+0100
+  instance: 2
+  original_id: 129
+  original_name: TV Basement
+  average_power_consumption: 190
+  number_of_events: 54
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.487+0100
+  original_id: 130
+  original_name: Hard-drive
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.487+0100
+  original_id: 131
+  original_name: Printer
+  average_power_consumption: 930
+  number_of_events: 150
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.487+0100
+  original_id: 132
+  original_name: Hair Dryer
+  average_power_consumption: 1600
+  number_of_events: 8
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.487+0100
+  original_id: 134
+  original_name: IRON
+  average_power_consumption: 1400
+  number_of_events: 40
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.488+0100
+  instance: 1
+  original_id: 135
+  original_name: Empty Living Room Socket
+  average_power_consumption: 60
+  number_of_events: 2
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.488+0100
+  instance: 2
+  original_id: 136
+  original_name: Empty Living Room Socket 2
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.488+0100
+  instance: 2
+  original_id: 140
+  original_name: Monitor 2
+  average_power_consumption: 40
+  number_of_events: 150
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.488+0100
+  original_id: 147
+  original_name: Backyard Lights
+  average_power_consumption: 60
+  number_of_events: 16
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.489+0100
+  original_id: 148
+  original_name: Washroom Light
+  average_power_consumption: 110
+  number_of_events: 6
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.489+0100
+  original_id: 149
+  original_name: Office Lights
+  average_power_consumption: 30
+  number_of_events: 54
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.489+0100
+  original_id: 150
+  original_name: Closet Lights
+  average_power_consumption: 20
+  number_of_events: 22
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.489+0100
+  original_id: 151
+  original_name: Upstairs Hallway Light
+  average_power_consumption: 25
+  number_of_events: 17
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.490+0100
+  original_id: 152
+  original_name: Hallway Stairs Light
+  average_power_consumption: 110
+  number_of_events: 58
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.490+0100
+  original_id: 153
+  original_name: Kitchen Hallway Light
+  average_power_consumption: 15
+  number_of_events: 6
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.490+0100
+  original_id: 155
+  original_name: Kitchen Overhead Light
+  average_power_consumption: 65
+  number_of_events: 56
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.490+0100
+  original_id: 156
+  original_name: Bathroom Upstairs Light
+  average_power_consumption: 65
+  number_of_events: 98
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.491+0100
+  original_id: 157
+  original_name: Dining Room Overhead Light
+  average_power_consumption: 65
+  number_of_events: 32
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.491+0100
+  original_instance: 158
+  original_name: Bedroom Lights
+  average_power_consumption: 190
+  number_of_events: 19
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.491+0100
+  original_instance: 159
+  original_name: Basement Lights
+  average_power_consumption: 35
+  number_of_events: 39
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.491+0100
+  original_id: 
+  original_name: Microwave
+  average_power_consumption: 1550
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.492+0100
+  original_id:
+  original_name: Air Conditioner
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.492+0100
+  original_id:
+  original_name: Dryer
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.492+0100
+  original_id: 204
+  original_name: Circuit 4
+  number_of_events: 46
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.492+0100
+  original_id: 207
+  original_name: Circuit 7
+  number_of_events: 38
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.493+0100
+  original_id: 209
+  original_name: Circuit 9
+  number_of_events: 46
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.493+0100
+  original_id: 210
+  original_name: Circuit 10
+  number_of_events: 99
+- source_schema: 'NILM Metadata :: Appliance'
+  last_update: 2014-07-03T20:44:37.493+0100
+  original_id: 211
+  original_name: Circuit 11
+  number_of_events: 394
+description: Single family house in Pittsburgh, Pennsylvania. The house has aproximately 50 electical appliances.
+rooms:
+- name: Basement
+- name: Bathroom
+  instance: 1
+  floor: 0
+- name: Kitchen
+  floor: 0
+- name: Dinning Room
+  floor: 0
+- name: Lounge
+  floor: 0
+- name: Hall
+  instance: 1
+  floor: 0
+- name: Garage
+  floor: 0
+- name: Outdoors
+- name: Bathroom
+  instance: 2
+  floor: 1
+- name: Bedroom
+  floor: 1
+- name: Hall
+  instance: 2
+  floor: 1
+- name: Study
+  floor: 1
+n_occupants: 2
+temporal_coverage:
+  start: '2011-10-20'
+  end: '2011-10-27'

@@ -1,0 +1,34 @@
+source_schema: 'NILM Metadata :: Dataset'
+source_file: dataset.yaml
+last_update: 2014-07-03T20:38:40.355+0100
+name: BLUED
+long_name: Building Level fUly Labeled Electricity Disaggregation Dataset
+creators:
+- Anderson, Kyle
+- Ocneanu, Adrian
+- Benítez, Diego ça-çç.ãâ
+- Carlson, Derrick
+- Rowe, Anthony
+- Bergés, Mario
+publication_date: 2012
+institution: Carnegie Mellon University (CMU)
+contact: marioberges@cmu.edu
+description: One week of fully labeled power demand data from one domestic building in the United States
+number_of_buildings: 1
+timezone: US/Eastern
+geo_location:
+  locality: Pennsylvania
+  country: US
+  latitude: 40.442508
+  longitude: -79.942564
+related_documents:
+- http://nilm.cmu.bi.org
+- >
+  K. Anderson, A. Ocneanu, D. Benitez, D. Carlson, A. Rowe, and M. Berges. 
+  BLUED: A Fully Labeled Public Dataset for Event-Based Non-Intrusive Load Monitoring Research.
+  In Proceedings of the 2nd KDD Workshop on Data Mining Applications in Sustainability
+  (SustKDD), Beijing, China, 2012
+schema: https://github.com/nilmtk/nilm_metadata/tree/v0.2.0
+temporal_coverage:
+  start: '2011-10-20'
+  end: '2011-10-27'
