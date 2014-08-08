@@ -20,4 +20,21 @@ public class Info {
 	public String software = "";				// 'ISFT' software -> software package used to create the file
 	public String source = "";					// 'ISRC' source -> original (person / organization) source of the file
 	public String source_form = "";				// 'ISRF' source form -> original form of material (.ZIP / .TXT / etc)
+	
+	
+	public String toString() {
+		String out 	= "file_creator: " + file_creator + "\n"
+					+ "comissioner: " + commissioner +"\n"
+					+ "comments: " + comments + "\n"
+					+ "copyright: " + copyright +"\n"
+					+ "creation_date: " + creation_date + "\n"
+					+ "keywords: " + keywords +"\n"
+					+ "name: " + name + "\n"
+					+ "product: " + product +"\n"
+					+ "subject: " + subject + "\n"
+					+ "software: " + software +"\n"
+					+ "source: " + source + "\n"
+					+ "source_form: " + source_form +"\n";
+		return out;
+	}
 } 

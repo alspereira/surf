@@ -1,0 +1,9 @@
+This folder contains all the assets required to execute the demos.
+Contents:
+-BLUED_PhaseA_DayONE_wave.wav, BLUED_PhaseB_DayONE_wave.wav | Raw wave files with one day of real and reactive power at 60Hz 	| Used in the SURFWrite demo
+-BLUED_PhaseA_DayONE_surf.wav, BLUED_PhaseB_DayONE_surf.wav | SURF version of the above files 									| Used in the SURFRead demo
+-BLUED.db | SQLite database containing all the original power events from the BLUED for the 60 Hz version of the dataset 		| Used in the SURFWrite demo
+-building1.yaml 	| YAML file containing the metadata of the house where BLUED was collected. This uses the NILM Metadata schema,
+ (see: https://github.com/nilmtk/nilm_metadata)																					| Used in the SURFWrite demo
+-dataset.yaml 		| Same as before, but for the general BLUED specification													| Used in the SURFWrite demo
+-meter_devices.yaml	| Sames as before, but for the metering devices used to collect BLUED										| Used in the SURFWrite demo	

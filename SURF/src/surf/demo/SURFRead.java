@@ -20,23 +20,26 @@ import surf.file.SURFFileDescr;
 
 public class SURFRead {
 
-	//static File				file_IN = new File("assets/BLUED_PhaseA_DayONE_wave.wav");
-	static File				file_IN = new File("assets/BLUED_PhaseA_surf.wav");
+	static String			file_IN_path_A = "assets/BLUED_PhaseA_DayOne_surf.wav";
+	static String			file_IN_path_B = "assets/BLUED_PhaseB_DayOne_surf.wav";
+	
+	static File				file_IN = new File(file_IN_path_B);
+	
 	static SURFFileDescr 	SURF_descr_IN;
 	static SURFFile 		SURF_file_IN;
 	
-	static void printMenu() {
-		String menu = "\nSelect an option \n\n"
-					+ "A - Appliance Activities (aka Labels) \n"
-					+ "U - User Activities (aka Regions) \n"
-					+ "N - Localized Metadata (aka Notes) \n"
-					+ "C - Comments \n"
-					+ "M - Metadata \n"
-					+ "I - Info \n"
-					+ "F - Config \n"
-					+ "P - Power \n"
-					+ "Q - Quit";
-		System.out.println( menu );
+	static void printMenu(String file_path) {
+		String menu = "\n\tSelect an option \n\n"
+					+ "\tA - Appliance Activities (aka Labels) \n"
+					+ "\tU - User Activities (aka Regions) \n"
+					+ "\tN - Localized Metadata (aka Notes) \n"
+					+ "\tC - Comments \n"
+					+ "\tM - Metadata \n"
+					+ "\tI - Info \n"
+					+ "\tF - Config \n"
+					+ "\tP - Power \n"
+					+ "\tQ - Quit";
+		System.out.println( "\nBrowsing: " + file_path + "\n" + menu );
 		System.out.print("->");
 	}
 	
@@ -63,6 +66,11 @@ public class SURFRead {
 	static ArrayList<Annotation> getMetadata() {
 		ArrayList<Annotation> metadata = (ArrayList<Annotation>) SURF_descr_IN.getProperty(SURFFileDescr.KEY_METADATA);
 		return metadata;
+	}
+	
+	static void printInfoFields() {
+		Info inf = (Info) SURF_descr_IN.getProperty(SURFFileDescr.KEY_INFO);
+		System.out.println(inf.toString());
 	}
 	
 	static void printConfigFields() {
@@ -96,6 +104,13 @@ public class SURFRead {
 	
 	public static void main(String[] args) {
 		
+		if(args.length > 0) {
+			if(args[0] == "A")
+				file_IN = new File(file_IN_path_A);
+			else if(args[0] == "B")
+				file_IN = new File(file_IN_path_B);
+		}
+		
 		try {
 			SURF_file_IN 	= SURFFile.openAsRead(file_IN);
 			SURF_descr_IN 	= SURF_file_IN.getDescr();	
@@ -105,11 +120,14 @@ public class SURFRead {
 			System.exit(-1);
 		}
 		
+		String file_path	= file_IN.getPath();
+		
 		boolean mustQuit 	= false;
 		Scanner textScanner = new Scanner(System.in);
 		String 	inputString = "";
 		
-		printMenu();
+		printMenu(file_path);
+		
 		while (mustQuit == false) {
 		
 			inputString = textScanner.nextLine();
@@ -117,27 +135,33 @@ public class SURFRead {
 			switch( inputString.toUpperCase() ) {
 			case "A":
 				print(getLabels());
-				printMenu();
+				printMenu(file_path);
 				break;
 			case "U":
 				print(getRegions());
-				printMenu();
+				printMenu(file_path);
 				break;
 			case "N":
 				print(getNotes());
-				printMenu();
+				printMenu(file_path);
 				break;
 			case "C":
 				print(getComments());
-				printMenu();
+				printMenu(file_path);
 				break;
 			case "M":
 				print(getMetadata());
-				printMenu();
+				printMenu(file_path);
 				break;
 			case "F":
 				printConfigFields();
-				printMenu();
+				printMenu(file_path);
+				break;
+			case "I":
+				printInfoFields();
+				printMenu(file_path);
+				break;
+			case "P":
 				break;
 			case "Q":
 				mustQuit = true;

@@ -28,7 +28,7 @@ public class SURFWrite {
 	private static File database_file = new File("assets/BLUED.db");
 	private static SQLiteQueue sqliteQueue = new SQLiteQueue(database_file);
 	
-	private static File file_IN = new File("/users/lucaspereira/desktop/BLUED_PhaseA_wave.wav");
+	private static File file_IN = new File("assets/BLUED_PhaseB_DayONE_wave.wav");
 	private static File file_OUT;
 	
 	private static SURFFile SURF_file_IN;
@@ -66,7 +66,7 @@ public class SURFWrite {
 	
 	public static void main(String[] args) {
 		
-		file_OUT = new File( "/users/lucaspereira/desktop/" + Calendar.getInstance().getTimeInMillis() + "_" + file_IN.getName() );
+		file_OUT = new File( "output/" + Calendar.getInstance().getTimeInMillis() + "_" + file_IN.getName() );
 		
 		// Start the sqlite jobs execution queue
 		sqliteQueue.start();
@@ -74,7 +74,7 @@ public class SURFWrite {
 		// Load all the labels
 		BLUEDGroundTruthLabelDTO[] BLUED_labels = 
 				sqliteQueue.execute(new LoadBLUEDGroundTruthLabelsJob<BLUEDGroundTruthLabelDTO[]>
-				("phase = 'A'")).complete();
+				("phase = 'B' and position <= 5420818")).complete();
 		
 		// For each label create a marker
 		for(int i = 0; i < BLUED_labels.length; i++)
@@ -101,16 +101,16 @@ public class SURFWrite {
 			
 			// SURF (optional) info chunk
 			SURF_info.archival_location = "http://nilm.cmubi.org";
-			SURF_info.comments 			= "This is the SURF version of the BLUED dataset phase A at 60 Hz";
+			SURF_info.comments 			= "This is the SURF version of the first 24 hours of the BLUED dataset phase B at 60 Hz";
 			SURF_info.commissioner 		= "Mario Bergés (marioberges@cmu.edu)";
 			SURF_info.copyright 		= "Inherited from the original source";
 			SURF_info.creation_date 	= dateFormat.format( Calendar.getInstance().getTime() );
 			SURF_info.file_creator		= "Lucas Pereira (lucas@m-iti.org)";
 			SURF_info.keywords 			= "NILM, dataset, event-based";
-			SURF_info.name 				= "SURF-BLUED: Phase A at 60 Hz";
+			SURF_info.name 				= "SURF-BLUED: Phase B at 60 Hz (First 24 hours)";
 			SURF_info.product 			= "Event-based NILM performance evaluation";
 			SURF_info.software 			= "SURF and SURF-PI: Java v0.1";
-			SURF_info.subject 			= "Phase A: Real and Reactive power at 60 Hz";
+			SURF_info.subject 			= "Phase B: Real and Reactive power at 60 Hz (First 24 hours)";
 			SURF_info.source 			= "BLUED: Building-Level fUlly labeled Electricity Disaggregation Dataset";
 			SURF_info.source_form 		= "Matlab (.mat)";
 			
@@ -129,6 +129,8 @@ public class SURFWrite {
 			SURF_descr_OUT.setProperty(SURFFileDescr.KEY_METADATA, metadata);
 			
 			// Add some comments
+			
+			comments.add( new Annotation("This is the first 24 hours of BLUED phase B and is being used here only for testing purposes."));
 			comments.add(new Annotation("The metadata schema being used is the one from the NILM metadata project"
 					+ " (see: https://github.com/nilmtk/nilm_metadata)"));
 			comments.add( new Annotation("The original metadata files can be found in the assets folder of the"
