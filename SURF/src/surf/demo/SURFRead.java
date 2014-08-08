@@ -20,7 +20,8 @@ import surf.file.SURFFileDescr;
 
 public class SURFRead {
 
-	static File				file_IN = new File("assets/BLUED_PhaseA_DayONE_wave.wav");
+	//static File				file_IN = new File("assets/BLUED_PhaseA_DayONE_wave.wav");
+	static File				file_IN = new File("assets/BLUED_PhaseA_surf.wav");
 	static SURFFileDescr 	SURF_descr_IN;
 	static SURFFile 		SURF_file_IN;
 	
@@ -54,6 +55,28 @@ public class SURFRead {
 		return regions;
 	}
 	
+	static ArrayList<Annotation> getComments() {
+		ArrayList<Annotation> comments = (ArrayList<Annotation>) SURF_descr_IN.getProperty(SURFFileDescr.KEY_COMMENTS);
+		return comments;
+	}
+	
+	static ArrayList<Annotation> getMetadata() {
+		ArrayList<Annotation> metadata = (ArrayList<Annotation>) SURF_descr_IN.getProperty(SURFFileDescr.KEY_METADATA);
+		return metadata;
+	}
+	
+	static void printConfigFields() {
+		String config = "RIFF DEFAULT" + 
+						"\n-Channels: " + SURF_descr_IN.channels +
+						"\n-Rate: " + SURF_descr_IN.rate +
+						"\n-BitsPerSample: " + SURF_descr_IN.bitsPerSample +
+						"\nSURF SPECIFIC" +
+						"\n-InitialTimestamp: " + SURF_descr_IN.SURF_initial_timestamp +
+						"\n-Timezone: " + SURF_descr_IN.SURF_timezone +
+						"\n-Rate: " + SURF_descr_IN.SURF_sample_rate;
+		System.out.println(config);
+	}
+	
 	static void print(ArrayList<?> list) {
 		if(list == null)
 			System.out.println("None available");
@@ -66,7 +89,7 @@ public class SURFRead {
 				else if( obj instanceof Region ) // Regions
 					System.out.println( ((Region) obj).name );
 				else if( obj instanceof Annotation ) // Comments and metadata
-					System.out.println( ((Annotation) obj).content );
+					System.out.println( ((Annotation) obj).content + "\n");
 			}
 		}
 	}
@@ -102,6 +125,18 @@ public class SURFRead {
 				break;
 			case "N":
 				print(getNotes());
+				printMenu();
+				break;
+			case "C":
+				print(getComments());
+				printMenu();
+				break;
+			case "M":
+				print(getMetadata());
+				printMenu();
+				break;
+			case "F":
+				printConfigFields();
 				printMenu();
 				break;
 			case "Q":

@@ -5,7 +5,7 @@
 	<classpathentry kind="lib" path="lib/json-simple-1.1.1.jar"/>
 	<classpathentry kind="lib" path="lib/sqlite4java.jar">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="SURFv0.1/lib"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="SURF/lib"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib"/>
