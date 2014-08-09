@@ -1,4 +1,4 @@
-package surf.demo.data;
+package surf.demo.model;
 
 public class BLUEDGroundTruthLabelDTO {
 	public int id;

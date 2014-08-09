@@ -1,7 +1,9 @@
-package surf.demo.data;
+package surf.demo.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import surf.demo.model.BLUEDGroundTruthLabelDTO;
 
 import com.almworks.sqlite4java.SQLiteConnection;
 import com.almworks.sqlite4java.SQLiteJob;

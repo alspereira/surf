@@ -1,4 +1,4 @@
-package surf.demo;
+package surf.demo.util;
 
 import java.io.IOException;
 import java.nio.charset.Charset;

@@ -12,8 +12,8 @@ import java.util.Map;
 
 import org.json.simple.JSONValue;
 
-import surf.demo.data.BLUEDGroundTruthLabelDTO;
-import surf.demo.data.LoadBLUEDGroundTruthLabelsJob;
+import surf.demo.service.LoadBLUEDGroundTruthLabelsJob;
+import surf.demo.util.NILMMetadata_BLUED;
 import surf.file.Annotation;
 import surf.file.Info;
 import surf.file.Marker;
@@ -51,7 +51,7 @@ public class SURFWrite {
 	
 	// ------ Methods -----
 	
-	private static String Label2JSON(BLUEDGroundTruthLabelDTO label) {
+	private static String Label2JSON(surf.demo.model.BLUEDGroundTruthLabelDTO label) {
 		Map<String, Object> obj = new LinkedHashMap<String, Object>();
 		obj.put("SURF_ID", label.id);
 		obj.put("App_ID", new Integer(label.appliance_id));
@@ -72,8 +72,8 @@ public class SURFWrite {
 		sqliteQueue.start();
 		
 		// Load all the labels
-		BLUEDGroundTruthLabelDTO[] BLUED_labels = 
-				sqliteQueue.execute(new LoadBLUEDGroundTruthLabelsJob<BLUEDGroundTruthLabelDTO[]>
+		surf.demo.model.BLUEDGroundTruthLabelDTO[] BLUED_labels = 
+				sqliteQueue.execute(new LoadBLUEDGroundTruthLabelsJob<surf.demo.model.BLUEDGroundTruthLabelDTO[]>
 				("phase = 'B' and position <= 5420818")).complete();
 		
 		// For each label create a marker
