@@ -1,4 +1,4 @@
-This folder contains all the assets required to execute the demos.
+This folder contains all the assets required to execute the demos
 Contents:
 -BLUED_PhaseA_DayONE_wave.wav, BLUED_PhaseB_DayONE_wave.wav | Raw wave files with one day of real and reactive power at 60Hz 	| Used in the SURFWrite demo
 -BLUED_PhaseA_DayONE_surf.wav, BLUED_PhaseB_DayONE_surf.wav | SURF version of the above files 									| Used in the SURFRead demo
