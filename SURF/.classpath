@@ -10,5 +10,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="lib"/>
 	<classpathentry kind="lib" path="lib/snakeyaml-1.13.jar"/>
+	<classpathentry kind="lib" path="lib/jchart2d-3.2.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
