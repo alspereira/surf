@@ -43,7 +43,8 @@ public class PowerChart extends JFrame implements Runnable {
 	private ITrace2D qTrace;
 	
 	AAxis yAxis;
-
+	AAxis xAxis;
+	
 	public ArrayBlockingQueue<IPowerSample> samplesQueue;
 	
 	public PowerChart(int maxChartSamples) {
@@ -51,20 +52,22 @@ public class PowerChart extends JFrame implements Runnable {
         init();
 	}
 	
+	public void setPowerSamplesQueue(ArrayBlockingQueue<IPowerSample> powerSamplesQueue) {
+		this.samplesQueue = powerSamplesQueue;
+	}
+	
 	private void init() {
 		pTrace = new Trace2DLtd(chartSize);
     	qTrace = new Trace2DLtd(chartSize);
 
     	yAxis = new AxisLinear();
-    	yAxis.getAxisTitle().setTitle("Power (W | VAR)");
-    
-    	pChart.setAxisYLeft(yAxis,1);
-
-        AAxis xAxis = new AxisLinear();
-        
-        xAxis.setFormatter(new LabelFormatterDate(new SimpleDateFormat("dd-MM-y  HH:mm:ss")));
-        
-        pChart.setAxisXBottom(xAxis, 1);
+    	 xAxis = new AxisLinear();
+    	//yAxis.getAxisTitle().setTitle("Power (W | VAR)");
+    	pChart.setAxisYLeft(yAxis);
+    	
+    	xAxis.setFormatter(new LabelFormatterDate(new SimpleDateFormat("dd-MM-y HH:mm:ss")));
+        //xAxis.getAxisTitle().setTitle("Time");
+        pChart.setAxisXBottom(xAxis);
         
 		yAxis.setRangePolicy(new RangePolicyMinimumViewport(new Range(-1000, 2000)));
 		
@@ -76,8 +79,10 @@ public class PowerChart extends JFrame implements Runnable {
 	
 		pTrace.setName("Real Power (W)");
 		qTrace.setName("Reactive Power (VAR)");
+		
+		this.getContentPane().add(pChart);
 
-		this.setSize(400,300);
+		this.setSize(800,300);
 		this.setVisible(true);
 	}
 	
@@ -87,12 +92,6 @@ public class PowerChart extends JFrame implements Runnable {
 		
 		return this.samplesQueue;
 	}
-	
-	public void start() {
-		Thread s = new Thread(this);
-		s.start();
-	}
-	
 
 	@Override
 	public void run() {
@@ -101,7 +100,7 @@ public class PowerChart extends JFrame implements Runnable {
 			try {
 				ps = samplesQueue.take();
 				pTrace.addPoint(ps.getTimestamp(), ps.getRealPower());
-				pTrace.addPoint(ps.getTimestamp(), ps.getReactivePower());			
+				qTrace.addPoint(ps.getTimestamp(), ps.getReactivePower());	
 			} catch (InterruptedException e1) {
 					e1.printStackTrace();
 			}

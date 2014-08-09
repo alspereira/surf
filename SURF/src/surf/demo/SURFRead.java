@@ -2,15 +2,22 @@ package surf.demo;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Scanner;
 
 import javax.swing.JFileChooser;
 
+import surf.demo.util.PowerCalculator;
+import surf.demo.util.SURFPowerReader;
+import surf.demo.view.PowerChart;
 import surf.file.Annotation;
 import surf.file.Info;
 import surf.file.Marker;
@@ -23,7 +30,7 @@ public class SURFRead {
 	static String			file_IN_path_A = "assets/BLUED_PhaseA_DayOne_surf.wav";
 	static String			file_IN_path_B = "assets/BLUED_PhaseB_DayOne_surf.wav";
 	
-	static File				file_IN = new File(file_IN_path_B);
+	static File				file_IN = new File(file_IN_path_A);
 	
 	static SURFFileDescr 	SURF_descr_IN;
 	static SURFFile 		SURF_file_IN;
@@ -38,7 +45,7 @@ public class SURFRead {
 					+ "\tI - Info \n"
 					+ "\tF - Config \n"
 					+ "\tP - Power \n"
-					+ "\tQ - Quit";
+		+ "\tQ - Quit";
 		System.out.println( "\nBrowsing: " + file_path + "\n" + menu );
 		System.out.print("->");
 	}
@@ -162,6 +169,8 @@ public class SURFRead {
 				printMenu(file_path);
 				break;
 			case "P":
+				new ReadPowerAux();
+				System.out.println("->");
 				break;
 			case "Q":
 				mustQuit = true;
@@ -176,4 +185,47 @@ public class SURFRead {
 		System.exit(0);
 
      }
+	
+	static class ReadPowerAux {
+		private SURFPowerReader powerReader;
+		private PowerCalculator powerCalculator;
+		private PowerChart		powerChart;
+		
+		private long			timestamp;
+		private String			datetime;
+		
+		private  SimpleDateFormat dateFormat 	= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+		
+		private float[] calibrationConstants;
+		
+		public ReadPowerAux() {
+			
+			try {
+				powerReader = new SURFPowerReader(file_IN);		
+				
+				datetime = SURF_file_IN.getDescr().SURF_initial_timestamp;
+				calibrationConstants = SURF_file_IN.getDescr().SURF_channel_calibration;
+				timestamp = dateFormat.parse(datetime).getTime();
+				
+				powerCalculator = new PowerCalculator(timestamp);
+				powerCalculator.setCalibatrionConstants(calibrationConstants);
+				powerCalculator.setChannelSamples(powerReader.getAudioDataQueue());
+				
+				powerChart = new PowerChart(5000);
+				powerChart.setPowerSamplesQueue(powerCalculator.getPowerSamplesQueue());
+				
+				// start all this crap
+				
+				new Thread(powerChart).start();
+				new Thread(powerCalculator).start();
+				new Thread(powerReader).start();	
+				
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			
+			
+		}
+	}
 }
+
