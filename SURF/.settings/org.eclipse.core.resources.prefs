@@ -1,9 +1,9 @@
 eclipse.preferences.version=1
 encoding//assets/dataset.yaml=UTF-8
-encoding//src/Test.java=UTF-8
-encoding//src/TestNILMMetadata.java=UTF-8
-encoding//src/scissDemo.java=UTF-8
-encoding//src/scissDemoRead.java=UTF-8
+encoding//src/CopyOfTest.java=UTF-8
+encoding//src/CopyOfTestNILMMetadata.java=UTF-8
+encoding//src/CopyOfscissDemo.java=UTF-8
+encoding//src/CopyOfscissDemoRead.java=UTF-8
 encoding//src/surf/demo/NILMMetadata_BLUED.java=UTF-8
 encoding//src/surf/demo/SURFRead.java=UTF-8
 encoding//src/surf/demo/SURFTag.java=UTF-8
